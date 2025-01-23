@@ -1,0 +1,26 @@
+body {
+	margin: 0;
+}
+
+h1 {
+	font-size: 5em;
+	display: inline-flex;
+	align-items: flex-start;
+	margin-top: 0;
+	gap: 0.1em;
+
+	background: linear-gradient(to bottom right,
+		var(--purple-dark) 25%,25%,
+		var(--purple-bright) 33%,33%,
+		var(--purple-light) 40%,40%,
+		var(--purple-pale) 45%,45%,
+	#00000000 0%);
+
+	color: var(--blue-light);
+	text-shadow: var(--black-dark) 2px 3px;
+}
+h1 img {
+	height: 2em;
+	margin-left: 0.2em;
+	margin-top: 0.1em;
+}
