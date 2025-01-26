@@ -1,7 +1,6 @@
 +++
 title = 'JellyCTF Writeup'
 date = 2025-01-22T10:39:54Z
-draft = false
 +++
 # Foreword
 

@@ -1,7 +1,6 @@
 +++
 title = 'Dots System'
 date = 2025-01-22T10:39:54Z
-draft = true
 +++
 
 At the beginning of 2024 I drew twelve circles on my whiteboard because I had spent the previous year drowning and I needed something to change. Over the intervening year the system I had started grew to the full size that a whiteboard (and calendar) could realistically suppport, and given a hundred new way to think about my life. But first, why would you want a Dots System.
