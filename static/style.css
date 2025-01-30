@@ -10,10 +10,10 @@ h1 {
 	padding-left: 0.2em;
 
 	background: linear-gradient(to bottom right,
-		var(--purple-dark) 25%,calc(25% + 1px),
-		var(--purple-bright) 33%,calc(33% + 1px),
+		var(--purple-dark) 23%,calc(23% + 1px),
+		var(--purple-bright) 34%,calc(34% + 1px),
 		var(--purple-light) 40%,calc(40% + 1px),
-		var(--purple-pale) 45%, #00000000 calc(45% + 1px));
+		var(--purple-pale) 44%, #00000000 calc(44% + 1px));
 
 	color: var(--blue-light);
 	text-shadow: var(--black-dark) 2px 3px;
