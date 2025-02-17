@@ -1,6 +1,7 @@
 {{ define "main" }}
 <h1> <img src="jcomcl.svg"> jcomcl's Site </h1>
-{{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-  {{ end }}
+<main>
+{{ (.Site.GetPage "/posts").Render "section" }}
+{{ (.Site.GetPage "/misc").Render "section" }}
+</main>
 {{ end }}

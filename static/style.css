@@ -28,7 +28,10 @@ img {
 	width: 100%;
 }
 
-article {
+
+/* TODO: figure out how to use article and/or main consistently */
+body > main,
+body > article {
 	max-width: 80em;
 	padding: 1em;
 	text-align: justify;
@@ -36,12 +39,28 @@ article {
 	margin-right: auto;
 }
 
-p {
-}
-
 blockquote *,
 blockquote {
 	font-family: serif;
+	font-style: italic;
 	text-align: initial;
+}
 
+a.page-preview{
+	display: flex;
+	flex-flow: column-reverse;
+
+	overflow: hidden;
+
+	height: 12em;
+	max-width: 18em;
+	min-width: 12em;
+	width: fit-content;
+	box-shadow: 1px 1px 4px;
+}
+a.page-preview > img {
+	object-fit: cover;
+	object-position: top;
+	height: 100%;
+	min-width: 100%;
 }

@@ -1,0 +1,9 @@
+{{ $out := "" }}
+
+{{ with resources.Get .Params.banner }}
+    {{ $out = .}}
+{{else}} {{ with .Resources.GetMatch "banner.*" }}
+    {{ $out = .}}
+{{end}}{{end}}
+
+{{ return $out }}
