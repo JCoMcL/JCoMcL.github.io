@@ -1,7 +1,7 @@
 <a class="page-preview" href="{{ .RelPermalink }}">
 	<hgroup>
 		<h3>{{.LinkTitle}}</h3>
-		{{with .Params.tagline}} <p>{{ . }}</p> {{end}}
+		{{with .Params.subtitle}} <p>{{ . }}</p> {{end}}
 	</hgroup>
 
 	{{ with (partial "find-banner-image" .) }}

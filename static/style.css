@@ -2,6 +2,12 @@ body {
 	margin: 0;
 }
 
+a {
+	color: var(--blue-dark);
+} a:visited {
+	color: var(--purple-dark);
+}
+
 h1 {
 	font-size: 5em;
 	display: inline-flex;
@@ -24,10 +30,29 @@ h1 img {
 	margin-top: 0.1em;
 }
 
+hgroup {
+	background: linear-gradient(to right,
+		var(--blue-muddy) 2em,calc(2em + 1px),
+		var(--blue-dark) 6em,calc(6em + 1px),
+		var(--blue-bright) 93%,calc(93% + 1px),
+		var(--cyan-light) 100%);
+	color: var(--white-light);
+}
+hgroup > h3 {
+	margin: 0;
+	margin-left: 0.4em;
+	font-size: 1.3em;
+	position: relative;
+	bottom: 0.2em;
+	text-shadow: var(--blue-bright) 0px -0.08em;
+}
+hgroup > p {
+	margin: 0 1em;
+}
+
 img {
 	width: 100%;
 }
-
 
 /* TODO: figure out how to use article and/or main consistently */
 body > main,
@@ -46,6 +71,10 @@ blockquote {
 	text-align: initial;
 }
 
+a.page-preview:link,
+a.page-preview:visited{
+	text-decoration: none;
+}
 a.page-preview{
 	display: flex;
 	flex-flow: column-reverse;
