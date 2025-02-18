@@ -2,7 +2,7 @@
 title = 'The Dots System'
 date = 2025-01-22T10:39:54Z
 [params]
-subtitle = "What it is, why it is, and what a year of it has done to me"
+subtitle = "What it is, and what a year of it has done to me"
 +++
 
 At the beginning of 2024 I drew twelve circles on my whiteboard because I had spent the previous year drowning, and I needed something to change. Over the intervening year the system I had started grew to the full size that a whiteboard (and calendar) could realistically support, and given me a dozen new ways to look at how I run my life. I want to finally write down everything I have to say about the Dots System, but first, why would you want a Dots System.

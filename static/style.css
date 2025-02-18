@@ -30,24 +30,25 @@ h1 img {
 	margin-top: 0.1em;
 }
 
-hgroup {
-	background: linear-gradient(to right,
-		var(--blue-muddy) 2em,calc(2em + 1px),
-		var(--blue-dark) 6em,calc(6em + 1px),
-		var(--blue-bright) 93%,calc(93% + 1px),
-		var(--cyan-light) 100%);
-	color: var(--white-light);
+h2, h3, h4, h5, h6 {
+	font-family: sans;
+}
+h3 {
+	margin: 0 0.4em;
+	font-size: 1.3em;
 }
 hgroup > h3 {
-	margin: 0;
-	margin-left: 0.4em;
-	font-size: 1.3em;
 	position: relative;
-	bottom: 0.2em;
-	text-shadow: var(--blue-bright) 0px -0.08em;
+	top: 0.3em;
 }
 hgroup > p {
-	margin: 0 1em;
+	margin: 0;
+	padding: 0.4em;
+	padding-bottom: 0.3em;
+	color: white;
+	font-weight: bold;
+	background-color: #00000070;
+	text-shadow: black 0px 0.5px 1px;
 }
 
 img {
@@ -79,17 +80,64 @@ a.page-preview{
 	display: flex;
 	flex-flow: column-reverse;
 
-	overflow: hidden;
-
 	height: 12em;
 	max-width: 18em;
 	min-width: 12em;
 	width: fit-content;
-	box-shadow: 1px 1px 4px;
 }
-a.page-preview > img {
-	object-fit: cover;
-	object-position: top;
-	height: 100%;
-	min-width: 100%;
+
+/* --CARD STYLES-- */
+.card {
+	padding: 6px;
+	position: relative;
+
+	--size: .2em;
+	margin: 0.2em;
+}
+@media screen {
+	.card {
+		filter: drop-shadow( 1px 1px 2px #00000080)
+}
+/* using filters rasterizes the output, which wreaks havoc on printing */
+.card::after,.card::before{
+	content: '';
+	position: absolute;
+	z-index: -1;
+
+	--outset: calc(0px - var(--size));
+	top: var(--outset);
+	right: var(--outset);
+	bottom:  var(--outset);
+	left: var(--outset);
+
+}
+.card::before{
+	background-image: linear-gradient(to top , #00000075 1%, #00000015 60%), var(--url);
+	background-size: cover;
+	background-position: top;
+	transform: rotate(2deg);
+}
+.card::after{
+	z-index: -2;
+	background: linear-gradient(to right,
+		var(--blue-muddy) 2em,calc(2em + 1px),
+		var(--blue-dark) 6em,calc(6em + 1px),
+		var(--blue-bright) 93%,calc(93% + 1px),
+		var(--cyan-light) 100%);
+	transform: rotate(-2deg);
+}
+a.card:visited {
+	color: white;
+}
+.card :is(h1, h2, h3, h4, h5, h6) {
+	font-family: sans;
+	/* NOTE: this only looks good for bold fonts */
+	-webkit-text-stroke: 1px black;
+	paint-order: stroke fill;
+}
+
+
+.page-preview.card hgroup {
+	position: relative;
+	top: 0.4em;
 }

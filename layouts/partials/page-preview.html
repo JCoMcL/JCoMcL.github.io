@@ -1,10 +1,12 @@
-<a class="page-preview" href="{{ .RelPermalink }}">
+<a class="page-preview card" href="{{ .RelPermalink }}"
+{{with (partial "find-banner-image" .)}} style='{{.RelPermalink | partial "quotted" | safeCSS}}' {{end}} >
+	{{$page := .}}
+	{{with .Params.subtitle}}
 	<hgroup>
-		<h3>{{.LinkTitle}}</h3>
-		{{with .Params.subtitle}} <p>{{ . }}</p> {{end}}
+		<h3>{{$page.LinkTitle}}</h3>
+		<p>{{ . }}</p>
 	</hgroup>
-
-	{{ with (partial "find-banner-image" .) }}
-		<img src="{{.RelPermalink}}">
+	{{else}}
+	<h3>{{.LinkTitle}}</h3>
 	{{end}}
 </a>
