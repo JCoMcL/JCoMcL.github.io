@@ -1,7 +1,7 @@
 {{ define "main" }}
 <h1> <img src="jcomcl.svg"> jcomcl's Site </h1>
 <main>
-{{ (.Site.GetPage "/posts").Render "section" }}
-{{ (.Site.GetPage "/misc").Render "section" }}
+{{ (.Site.GetPage "/posts") | partial "section-list" }}
+{{ (.Site.GetPage "/misc") | partial "section-list" }}
 </main>
 {{ end }}

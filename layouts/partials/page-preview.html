@@ -1,5 +1,5 @@
 <a class="page-preview card" href="{{ .RelPermalink }}"
-{{with (partial "find-banner-image" .)}} style='{{.RelPermalink | partial "quotted" | safeCSS}}' {{end}} >
+{{with (partial "find-banner-image" .)}} style='{{(.Fit "640x320 webp q50").RelPermalink | partial "quotted" | safeCSS}}' {{end}} >
 	{{$page := .}}
 	{{with .Params.subtitle}}
 	<hgroup>

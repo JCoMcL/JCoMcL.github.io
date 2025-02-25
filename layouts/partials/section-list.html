@@ -1,0 +1,10 @@
+<section class="directory">
+	<h2>{{.Title}}</h2>
+	{{ .Content }}
+	<ul>
+	{{ range .Pages }}
+		<li>{{partial "page-preview" .}}</li>
+	{{ end }}
+	</ul>
+</section>
+

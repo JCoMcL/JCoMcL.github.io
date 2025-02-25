@@ -19,10 +19,11 @@ h1 {
 		var(--purple-dark) 23%,calc(23% + 1px),
 		var(--purple-bright) 34%,calc(34% + 1px),
 		var(--purple-light) 40%,calc(40% + 1px),
-		var(--purple-pale) 44%, #00000000 calc(44% + 1px));
+		var(--purple-pale) 44%, #0000 calc(44% + 1px));
 
 	color: var(--blue-light);
 	text-shadow: var(--black-dark) 2px 3px;
+	font-family: serif;
 }
 h1 img {
 	width: auto;
@@ -31,11 +32,14 @@ h1 img {
 }
 
 h2, h3, h4, h5, h6 {
-	font-family: sans;
+	font-family: "Go", sans;
 }
 h3 {
 	margin: 0 0.4em;
-	font-size: 1.3em;
+	font-size: 1.4em;
+}
+h2 {
+	font-size: 1.8em;
 }
 hgroup > h3 {
 	position: relative;
@@ -49,6 +53,8 @@ hgroup > p {
 	font-weight: bold;
 	background-color: #00000070;
 	text-shadow: black 0px 0.5px 1px;
+	font-family: "Bainsley", sans;
+	font-style: italic;
 }
 
 img {
@@ -58,18 +64,63 @@ img {
 /* TODO: figure out how to use article and/or main consistently */
 body > main,
 body > article {
-	max-width: 80em;
 	padding: 1em;
 	text-align: justify;
 	margin-left: auto;
 	margin-right: auto;
 }
-
+article {
+	max-width: 80em;
+}
 blockquote *,
 blockquote {
 	font-family: serif;
 	font-style: italic;
 	text-align: initial;
+}
+
+
+/* --SECTION STYLES-- */
+section.directory{
+	display: flex;
+	flex-flow: column;
+	align-items: flex-start;
+
+	
+}
+.directory ul{
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	padding: 0;
+
+	position: relative;
+}
+.directory ul::before {
+	content: '';
+	top: 3em;
+	left: 5em;
+	bottom: 5em;
+	right: 5em;
+
+
+	position: absolute;
+}
+.directory h2 {
+	margin: 0 1em ;
+	position: relative;
+	top: 1.3em;
+	padding: 0.3em 0.3em 1em 0.3em;
+}
+.directory h2,.directory ul::before {
+	border-radius: 5px;
+	background: linear-gradient(to bottom left, var(--white-pale), 80%, var(--white-light));
+	border: 1px solid var(--white-dark);
+	z-index: -3;
+}
+
+.directory li {
+	display: block;
 }
 
 a.page-preview:link,
@@ -83,7 +134,6 @@ a.page-preview{
 	height: 12em;
 	max-width: 18em;
 	min-width: 12em;
-	width: fit-content;
 }
 
 /* --CARD STYLES-- */
@@ -94,11 +144,7 @@ a.page-preview{
 	--size: .2em;
 	margin: 0.2em;
 }
-@media screen {
-	.card {
-		filter: drop-shadow( 1px 1px 2px #00000080)
-}
-/* using filters rasterizes the output, which wreaks havoc on printing */
+
 .card::after,.card::before{
 	content: '';
 	position: absolute;
@@ -123,14 +169,13 @@ a.page-preview{
 		var(--blue-muddy) 2em,calc(2em + 1px),
 		var(--blue-dark) 6em,calc(6em + 1px),
 		var(--blue-bright) 93%,calc(93% + 1px),
-		var(--cyan-light) 100%);
+		var(--cyan-light) 99%);
 	transform: rotate(-2deg);
 }
-a.card:visited {
+a.card:visited, a.card:link {
 	color: white;
 }
 .card :is(h1, h2, h3, h4, h5, h6) {
-	font-family: sans;
 	/* NOTE: this only looks good for bold fonts */
 	-webkit-text-stroke: 1px black;
 	paint-order: stroke fill;

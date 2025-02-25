@@ -5,6 +5,10 @@
 	<link rel="stylesheet" href="/style.css">
 	<link rel="stylesheet" href="/colorscheme.css">
     </head>
+    <style>
+        {{partial "font.css" "Bainsley" | safeCSS}}
+        {{partial "font.css" "Go" | safeCSS}}
+    </style>
     <body>
             {{ block "main" . }} {{end}}
     </body>

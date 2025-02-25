@@ -1,0 +1,8 @@
+@font-face {
+	font-family: "{{strings.Title .}}";
+	{{with resources.Match (printf "fonts/*%s*" .)}}
+	src: {{range .}}
+		url("{{.RelPermalink}}"),
+	{{end}};
+	{{end}}
+}
