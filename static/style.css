@@ -1,3 +1,6 @@
+@import url('/card.css');
+@import url('/colorscheme.css');
+
 body {
 	margin: 0;
 }
@@ -33,13 +36,15 @@ h1 img {
 
 h2, h3, h4, h5, h6 {
 	font-family: "Go", sans;
+	color: var(--black-pale);
 }
 h3 {
 	margin: 0 0.4em;
 	font-size: 1.4em;
+	text-decoration-thickness: 3px;
 }
 h2 {
-	font-size: 1.8em;
+	font-size: 2em;
 }
 hgroup > h3 {
 	position: relative;
@@ -80,7 +85,7 @@ blockquote {
 }
 
 
-/* --SECTION STYLES-- */
+/* -----SECTION----- */
 section.directory{
 	display: flex;
 	flex-flow: column;
@@ -102,6 +107,8 @@ section.directory{
 	left: 5em;
 	bottom: 5em;
 	right: 5em;
+	border-radius: 5px;
+	z-index: -3;
 
 
 	position: absolute;
@@ -112,17 +119,22 @@ section.directory{
 	top: 1.3em;
 	padding: 0.3em 0.3em 1em 0.3em;
 }
-.directory h2,.directory ul::before {
-	border-radius: 5px;
-	background: linear-gradient(to bottom left, var(--white-pale), 80%, var(--white-light));
+.directory h2.card::before,.directory ul::before {
+	background: linear-gradient(to bottom left, var(--white-pale), 80%, var(--white-bright));
 	border: 1px solid var(--white-dark);
-	z-index: -3;
+}
+h2.card {
+	--clip-scale: 0;
+	--card-foreground: var(--white-pale);
+	--card-background: linear-gradient(to bottom left, var(--white-bright), var(--white-dark));
+	--card-filter: none;
 }
 
 .directory li {
 	display: block;
 }
 
+/* -----PAGE PREVIEW----- */
 a.page-preview:link,
 a.page-preview:visited{
 	text-decoration: none;
@@ -136,53 +148,39 @@ a.page-preview{
 	min-width: 12em;
 }
 
-/* --CARD STYLES-- */
-.card {
-	padding: 6px;
-	position: relative;
-
-	--size: .2em;
-	margin: 0.2em;
-}
-
-.card::after,.card::before{
-	content: '';
-	position: absolute;
-	z-index: -1;
-
-	--outset: calc(0px - var(--size));
-	top: var(--outset);
-	right: var(--outset);
-	bottom:  var(--outset);
-	left: var(--outset);
-
-}
-.card::before{
-	background-image: linear-gradient(to top , #00000075 1%, #00000015 60%), var(--url);
-	background-size: cover;
-	background-position: top;
-	transform: rotate(2deg);
-}
-.card::after{
-	z-index: -2;
-	background: linear-gradient(to right,
-		var(--blue-muddy) 2em,calc(2em + 1px),
-		var(--blue-dark) 6em,calc(6em + 1px),
+.page-preview.card {
+	--size: 1em;
+	--clip-scale: 0.3;
+	--rotate-scale: 0.8;
+	--card-foreground: linear-gradient(to top , #00000075 1%, #00000015 60%), var(--url) top / cover;
+	--card-background: linear-gradient(to right,
+		#0000 6em,calc(6em + 1px),
 		var(--blue-bright) 93%,calc(93% + 1px),
-		var(--cyan-light) 99%);
-	transform: rotate(-2deg);
+		var(--blue-light) 99%);
 }
-a.card:visited, a.card:link {
+.directory li:nth-child(even) .card {
+	--rotate-scale: calc( 0 - 0.8);
+}
+a.card:visited h3, a.card:link h3 {
 	color: white;
+	text-decoration: underline 3px var(--blue-light);
 }
-.card :is(h1, h2, h3, h4, h5, h6) {
+a.card:visited h3{
+	text-decoration-color: var(--purple-light);
+}
+a.page-preview.card::after {
+	background-color: var(--blue-bright);
+}
+a.page-preview.card:visited::after {
+	background-color: var(--purple-dark);
+}
+.page-preview.card :is(h1, h2, h3, h4, h5, h6) {
 	/* NOTE: this only looks good for bold fonts */
-	-webkit-text-stroke: 1px black;
+	-webkit-text-stroke: 1px var(--black-pale);
 	paint-order: stroke fill;
 }
-
-
 .page-preview.card hgroup {
 	position: relative;
 	top: 0.4em;
 }
+

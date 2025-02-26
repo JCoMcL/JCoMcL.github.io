@@ -1,0 +1,65 @@
+@import url("/random.css");
+
+.card {
+	padding: 6px;
+	position: relative;
+
+	--size: .2em;
+	margin: calc( var(--size));
+
+	--clip-scale: 1;
+	--rotate-scale: 1;
+
+	--card-background: repeating-linear-gradient(to top right, black, 1em, magenta 1em, magenta 2em);
+	--card-foreground: repeating-linear-gradient(to bottom right, white, 1em, gray 1em, gray 2em);
+	--card-filter: drop-shadow( 1px 1px 2px #00000060);
+}
+/* using filters rasterizes the output, which wreaks havoc on printing */
+@media screen {
+	.card{
+	filter: var(--card-filter);
+	}
+}
+.card::after,.card::before{
+	content: '';
+	position: absolute;
+	z-index: -1;
+
+	--outset: calc(0px - var(--size));
+	top: var(--outset);
+	right: var(--outset);
+	bottom:  var(--outset);
+	left: var(--outset);
+
+}
+.card::before{
+	background: var(--card-foreground);
+	transform: rotate(calc( 4deg * var(--r1) * var(--rotate-scale) ));
+
+	clip-path: polygon(
+		calc(0%   + var(--size) * var(--r2) * var(--clip-scale))
+		calc(0%   + var(--size) * var(--r3) * var(--clip-scale)),
+		calc(100% - var(--size) * var(--r4) * var(--clip-scale))
+		calc(0%   + var(--size) * var(--r5) * var(--clip-scale)),
+		calc(100% - var(--size) * var(--r6) * var(--clip-scale))
+		calc(100% - var(--size) * var(--r7) * var(--clip-scale)),
+		calc(0%   + var(--size) * var(--r8) * var(--clip-scale))
+		calc(100% - var(--size) * var(--r9) * var(--clip-scale))
+	);
+}
+.card::after{
+	z-index: -2;
+	background: var(--card-background);
+	transform: rotate(calc( -4deg * var(--r10) * var(--rotate-scale) ));
+
+	clip-path: polygon(
+		calc(0%   + var(--size) * var(--r11) * var(--clip-scale))
+		calc(0%   + var(--size) * var(--r12) * var(--clip-scale)),
+		calc(100% - var(--size) * var(--r13) * var(--clip-scale))
+		calc(0%   + var(--size) * var(--r14) * var(--clip-scale)),
+		calc(100% - var(--size) * var(--r15) * var(--clip-scale))
+		calc(100% - var(--size) * var(--r16) * var(--clip-scale)),
+		calc(0%   + var(--size) * var(--r17) * var(--clip-scale))
+		calc(100% - var(--size) * var(--r18) * var(--clip-scale))
+	);
+}
